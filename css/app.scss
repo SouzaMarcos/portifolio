@@ -1,0 +1,116 @@
+@import "_reset";
+@import "_colors";
+@import "_mixins";
+@import "_materialize";
+
+body{
+	font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+	font-size: 14px;
+	height: 100%;
+	a{
+		text-decoration: none;
+		color: $preto;
+	}
+
+}
+header{
+	.btn-menu{
+		position: fixed;
+		z-index: 999;
+	}
+}
+.large-header {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+main.conteudo{
+	.parallax-container{
+		z-index: 0;
+		.parallax{
+			video{
+				width: auto;
+    			position: fixed;
+    			height: 100%;
+    			top:0;
+    			right: 0;
+			}
+			.card{
+				min-height: 250px;
+				background: hsla(255,255,255,0.8);
+				position: absolute;
+			    text-align: center;
+			    left: 50%;
+			    top: 50%;
+			    width: 480px;
+			    height: 400px;
+			    margin-top: -200px;
+			    margin-left: -240px;	
+			    @include transition(1s);
+
+			    @include bp-menor-600() {
+					width: 380px;
+				    margin-left: -190px;
+			    }		    
+				
+				img.perfil{
+					position: relative;
+					min-height: 0px;
+					min-width: 0px;
+					top: 10px;
+					display: block;
+					width: 170px;
+					height: 170px;
+					@include border-radius(50%);
+					
+				}
+				.texto{
+					opacity: 0.7;
+					h1{
+						font-size: 35px;
+						color: $preto;
+						margin: 10px 0;
+					}
+					p{
+						font-size: 16px;
+						width: 90%;
+						margin: 0 auto;
+					}
+				}
+				.entrar{
+					width: 100%;
+					margin: 15px 0;
+				}
+				.contato{
+					border-top: 1px solid $preto;
+					padding: 15px 0;
+					font-size: 24px;
+					@include transition(1s);
+
+				    @include bp-menor-600() {
+						padding: 7px 0;
+				    }
+					a{
+						cursor: pointer;
+						i{
+							margin: 10px 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.section{
+		position: relative;
+		padding-top: 48px;
+		height: auto;
+		header{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			.row ul.tabs{
+				overflow: hidden;
+			}
+		}
+	}
+}

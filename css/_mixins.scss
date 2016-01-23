@@ -1,0 +1,40 @@
+@mixin border-radius($radius: 3px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($property: all, $duration: .5s){
+	-webkit-transition: $property $duration; 
+	-moz-transition: $property $duration; 
+	-o-transition: $property $duration;
+	transition: $property $duration;
+  -webkit-transform: translateZ(0px);
+}
+
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity-ie)";
+  filter: alpha(opacity=$opacity-ie);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+
+%clearfix {
+  clear: both;
+  display: block;
+  font: 1px/0px serif;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+
+
+@mixin bp-menor-600 {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
