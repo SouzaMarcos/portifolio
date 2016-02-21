@@ -1,60 +1,48 @@
 <html>
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=480px, user-scalable=no">
 	<title>Marcos Souza</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/border-menu.css">
 	<link rel="stylesheet" href="css/app.css">
 	<link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/materialize.js"></script>
+	<!--<script type="text/javascript" src="js/materialize.js"></script>-->
 	<script type="text/javascript" src="js/app.js"></script>
-	<script src='js/EasePack.min.js'></script>
-	<script src='js/rAF.js'></script>
-	<script src='js/TweenLite.min.js'></script>
-	<script src="js/index.js"></script>
 </head>
 <body>
-	<div class="fixed-action-btn vertical" style="bottom: 25px; right: 25px;">
-		<a class="btn-floating btn-large  blue-grey">
-			<i class="mdi mdi-share-variant "></i>
-		</a>
-		<ul>
-			<li><a class="btn-floating waves-effect waves-circle grey"><i class="mdi mdi-github-circle"></i></a></li>
-			<li><a class="btn-floating waves-effect waves-circle brown"><i class="mdi mdi-instagram"></i></a></li>
-			<li><a class="btn-floating waves-effect waves-circle blue"><i class="mdi mdi-facebook"></i></a></li>
-		</ul>
-	</div>
-	<div class="section white">
-		<header id="menu">
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3"><a>Início</a></li>
-						<li class="tab col s3"><a class="active" href="sobre">Sobre</a></li>
-						<li class="tab col s3"><a href="trabalhos">Trabalhos</a></li>
-						<li class="tab col s3"><a href="contato">Contato</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
-		<div class="conteudo container">
-			<section class="sobre">
-				<h1>Sobre</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aut dolorum, totam ipsa alias consequuntur aliquam. Cupiditate enim illum libero nam totam eveniet. Laboriosam ratione suscipit illo sunt quo, explicabo.</p>
-			</section>
-			<section class="trabalhos">
-				<h1>Trabalhos</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aut dolorum, totam ipsa alias consequuntur aliquam. Cupiditate enim illum libero nam totam eveniet. Laboriosam ratione suscipit illo sunt quo, explicabo.</p>
-			</section>
-			<section class="contato">
-				<h1>Contato</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aut dolorum, totam ipsa alias consequuntur aliquam. Cupiditate enim illum libero nam totam eveniet. Laboriosam ratione suscipit illo sunt quo, explicabo.</p>
-			</section>
-		</div>
-	</div>
+	<header>
+		<nav class="nav menu menu--titania">
+			<ul class="menu__list">
+				<li class="menu__item menu__item--current"><a href="#" class="menu__link">Home</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Sobre</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Trabahos</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Contato</a></li>
+				<li class="menu__lines"></li>
+			</ul>
+		</nav>
+		<nav id="bt-menu" class="sidenav bt-menu menu menu--titania">
+			<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+			<ul class="menu__list">
+				<li class="menu__item menu__item--current"><a href="#" class="menu__link">Home</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Sobre</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Trabahos</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Contato</a></li>
+				<li class="menu__lines"></li>
+			</ul>
+			<ul>
+				<li><a href="https://github.com/SouzaMarcos" target="_blank" class="bt-icon"><i class="mdi mdi-github-circle"></i></a></li>
+				<li><a href="https://www.facebook.com/souza.marcos0" target="_blank"><i class="mdi mdi-facebook"></i></a></li>
+				<li><a href="https://br.linkedin.com/in/souzamarcos0" target="_blank"><i class="mdi mdi-linkedin"></i></a></li>
+				<li><a><i class="mdi mdi-email"></i></a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+	</main>
 </body>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,4 +54,43 @@
   ga('send', 'pageview');
 
 </script>
+<script>
+	(function() {
+		[].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
+			var menuItems = menu.querySelectorAll('.menu__link'),
+				setCurrent = function(ev) {
+					ev.preventDefault();
+
+					var item = ev.target.parentNode; // li
+
+					// return if already current
+					if (classie.has(item, 'menu__item--current')) {
+						return false;
+					}
+					// remove current
+					classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+					// set current
+					classie.add(item, 'menu__item--current');
+				};
+
+			[].slice.call(menuItems).forEach(function(el) {
+				el.addEventListener('click', setCurrent);
+			});
+		});
+
+		[].slice.call(document.querySelectorAll('.link-copy')).forEach(function(link) {
+			link.setAttribute('data-clipboard-text', location.protocol + '//' + location.host + location.pathname + '#' + link.parentNode.id);
+			new Clipboard(link);
+			link.addEventListener('click', function() {
+				classie.add(link, 'link-copy--animate');
+				setTimeout(function() {
+					classie.remove(link, 'link-copy--animate');
+				}, 300);
+			});
+		});
+	})(window);
+	</script>
+	<script src="js/classie.js"></script>
+	<script src="js/borderMenu.js"></script>
+	<script src="js/clipboard.min.js"></script>
 </html>
