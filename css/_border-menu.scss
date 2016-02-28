@@ -5,15 +5,12 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-body  {
-	background: #1abc9c;
-}
-
 .container {
 	padding: 80px;
 }
-
+.sidenav {
+	display: none;
+}
 .bt-menu {
 	position: fixed;
 	top: 0;
@@ -47,12 +44,13 @@ body  {
 }
 
 .bt-menu-trigger {
+	@include transition(1s);
 	position: fixed;
-	top: 10px;
-	left: 50px;
+	top: 15px;
+	left: 100px;
 	z-index: 100;
 	display: block;
-	width: 50px;
+	width: 30px;
 	height: 50px;
 	cursor: pointer;
 }
@@ -204,10 +202,6 @@ body  {
 	outline: none;
 	text-decoration: none;
 }
-.bt-menu ul li a:hover {
-	transform: scale(0.8);
-	color: rgb(200,200,200);
-}
 .bt-menu ul li a i{
 	font-size: 22px;
     line-height: 50px;
@@ -216,18 +210,18 @@ body  {
 
  .bt-menu ul:first-of-type li a {
  	padding: 0 20px;
-# 	box-shadow: inset 0 1px rgba(0,0,0,0.2);
-# 	color: #fff;
-# 	text-transform: uppercase;
+ 	box-shadow: inset 0 1px rgba(0,0,0,0.2);
+ 	color: #fff;
+ 	text-transform: uppercase;
  	letter-spacing: 1px;
 	font-size: 1em;
-# 	-webkit-transition: color 0.2s;
-# 	transition: color 0.2s;
+ 	-webkit-transition: color 0.2s;
+ 	transition: color 0.2s;
  }
 
-# .bt-menu ul:first-of-type li:last-child a {
-# 	box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
-# }
+ .bt-menu ul:first-of-type li:last-child a {
+ 	box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
+ }
 
 .bt-menu ul:nth-of-type(2) li a {
 	color: #FFF;
@@ -240,11 +234,4 @@ body  {
 	font-size: 24px;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
-}
-
-# .bt-menu ul:first-of-type li a:hover,
-# .bt-menu ul:first-of-type li a:focus,
-.bt-menu ul li a:hover:before,
-.bt-menu ul li a:focus:before {
-	color: #1abc9c;
 }
