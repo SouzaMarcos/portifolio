@@ -1,16 +1,25 @@
 $( document ).ready(function() {
-    if($(window).height()>=500){
-	   $(".parallax-container").height($(window).height())
+    if($(window).height()>=430){
+	   $(".banner").height($(window).height());
+	   // $('.large-header').height($(window).height());
     }else{
-        $(".parallax-container").height(500);
+        $(".banner").height(500);
+        // $('.large-header').height(500);
     }
+ //    $( ".banner .card" ).animate({ "max-width": "600px" }, 800 , function() {
+ //    	 $( ".banner .card article" ).show('fast');
+	// });
+
 	$(window).resize(function(){
         //alert($(window).height());
-        if($(window).height()>=500){
-		  $(".parallax-container").height($(window).height());
+        if($(window).height()>=430){
+		  	$(".banner").height($(window).height());
         }else{
-            $(".parallax-container").height(500);
+            $(".banner").height(500);
         }
+	});
+	$('body').on('click','button[name="entrar"]',function(){
+		$("html, body").animate({ scrollTop: $('section.sobre').offset().top }, 500);
 	});
 	// $(".section.white").css('min-height',$(window).height()+1);
 	// $(window).resize(function(){

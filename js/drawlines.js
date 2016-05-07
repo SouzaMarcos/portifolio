@@ -8,13 +8,20 @@ $(document).ready(function(){
     initAnimation();
     addListeners();
 
+    $(window).resize(function(){
+        resize();
+        initHeader();
+        initAnimation();
+        addListeners();
+    });
+
     function initHeader() {
         width = window.innerWidth;
         height = window.innerHeight;
         target = {x: width/2, y: height/2};
 
         largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height+'px';
+        largeHeader.style.minHeight = '100%';
 
         canvas = document.getElementById('demo-canvas');
         canvas.width = width;
