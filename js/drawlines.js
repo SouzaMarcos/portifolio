@@ -8,12 +8,12 @@ $(document).ready(function(){
     initAnimation();
     addListeners();
 
-    $(window).resize(function(){
-        resize();
-        initHeader();
-        initAnimation();
-        addListeners();
-    });
+    // $(window).resize(function(){
+    //     resize();
+    //     initHeader();
+    //     initAnimation();
+    //     addListeners();
+    // });
 
     function initHeader() {
         width = window.innerWidth;
@@ -79,14 +79,14 @@ $(document).ready(function(){
     // Event handling
     function addListeners() {
         if(!('ontouchstart' in window)) {
-            // window.addEventListener('mousemove', mouseMove);
-            // window.addEventListener('tap', mouseMove);
-            $(window).mousemove(mouseMove);
+            window.addEventListener('mousemove', mouseMove);
+            window.addEventListener('tap', mouseMove);
+            //$(window).mousemove(mouseMove);
         }
-        // window.addEventListener('scroll', scrollCheck);
-        // window.addEventListener('resize', resize);
-        $(window).scroll(scrollCheck);
-        $(window).resize(resize);
+        window.addEventListener('scroll', scrollCheck);
+        window.addEventListener('resize', resize);
+        //$(window).scroll(scrollCheck);
+        //$(window).resize(resize);
     }
 
     function mouseMove(e) {
