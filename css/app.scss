@@ -39,6 +39,46 @@ p{
 .pull-left{
 	float: left;
 }
+.header{
+	color: #FFF;
+	z-index: 999;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 70px;
+	background-color: rgba(0, 0, 0, 0.5)
+}
+.nome {
+	font-size: 32px;
+	//float: left;
+	//margin-left: 15px;
+	line-height: 70px;
+	//text-transform: uppercase;
+	&> a {
+		text-decoration: none;
+		color:inherit;
+		& >b{
+			font-size: 16px;
+			border: 2px solid #FFF;
+			padding: 0 5px;
+			text-transform: capitalize;
+		}
+	}
+}
+.menu {
+	//float: right;
+	//margin-right: 15px;
+	&>.item-menu {
+		margin: 0 15px;
+		line-height: 70px;
+		float: right;
+		text-transform: uppercase;
+		a {
+			text-decoration: none;
+			color:inherit;
+		}
+	}
+}
 .banner {
 	position: relative;
 	height: 100%;
@@ -62,7 +102,8 @@ p{
 	width: 100%;
 	font-size: 36px;
 	position: absolute;
-	background-color: rgba(179, 19, 37, 0.8);
+	background-color: rgba(0, 0, 0, 0.5);
+	//background-color: rgba(179, 19, 37, 0.8);
 	bottom:0;
 	left: 0;
 	right: 0;
